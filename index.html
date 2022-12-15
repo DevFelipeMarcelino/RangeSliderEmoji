@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Range Slider</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="corpo">
+    <div class="wrapper">
+        <div class="section">
+            <div class="emojis">
+                <li class="slide-icon"><img src="img/raiva.png" alt="Emoji de raiva"></li>
+                <li class="slide-icon"><img src="img/revirando.png" alt="Emoji de raiva"></li>
+                <li class="slide-icon"><img src="img/rosado.png" alt="Emoji de raiva"></li>
+                <li class="slide-icon"><img src="img/coracao.png" alt="Emoji de raiva"></li>
+                <li class="slide-icon"><img src="img/beijo.png" alt="Emoji de raiva"></li>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="thumb"><span></span></div>
+            <div class="progess-bar"></div>
+            <input type="range" min="0" max="100" value="0">
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector("input");
+        const bar = document.querySelector(".progess-bar");
+        const thumb = document.querySelector(".thumb");
+        const slideIcon = document.querySelector(".slide-icon");
+        let fundo = document.getElementById('corpo');
+        slider.oninput = ()=>{
+            let value = slider.value;
+            thumb.style.left = value + '%';
+            bar.style.width = value + '%';
+            if(value < 20){
+                slideIcon.style.marginTop = "0px";
+                fundo.style.backgroundColor = 'var(--raiva)'
+                
+            }
+            if(value >= 20){
+                slideIcon.style.marginTop = "-150px";
+                fundo.style.backgroundColor = 'var(--tedio)'
+            }
+            if(value >= 40){
+                slideIcon.style.marginTop = "-300px";
+                fundo.style.backgroundColor = 'var(--fofo)'
+            }
+            if(value >= 60){
+                slideIcon.style.marginTop = "-450px";
+                fundo.style.backgroundColor = 'var(--coracao)'
+            }
+            if(value >= 80){
+                slideIcon.style.marginTop = "-600px";
+                fundo.style.backgroundColor = 'var(--beijo)'
+            }
+        }
+    </script>
+</body>
+</html>
